@@ -10,6 +10,9 @@ public class Rocket : MonoBehaviour {
     Rigidbody rigidBody;
     AudioSource audioSource;
 
+    enum State { Alive, Dying, Transcending };
+    State state = State.Alive;
+
 	// Use this for initialization
 	void Start ()
     {
@@ -20,27 +23,42 @@ public class Rocket : MonoBehaviour {
 	// Update is called once per frame
 	void Update ()
     {
-        Thrust();
-        Rotate();
+        // todo stop sound on death somewhere
+        if (state == State.Alive)
+        {
+            Thrust();
+            Rotate();
+        }
 	}
 
     void OnCollisionEnter(Collision collision)
     {
+        if (state != State.Alive) { return; } // ignore collisions when dead or transcending
+
         switch (collision.gameObject.tag)
         {
             case "Friendly":
                 // do nothing
                 break;
             case "Finish":
-                // do nothing
-                print("Hit finish"); // TODO remove
-                SceneManager.LoadScene(1);
+                state = State.Transcending;
+                Invoke("LoadNextLevel", 1f); // parameterise time
                 break;
             default:
-                print("Dead");
-                SceneManager.LoadScene(0);
+                state = State.Dying;
+                Invoke("LoadFirstLevel", 1f); // parameterise time
                 break;
         }
+    }
+
+    private void LoadFirstLevel()
+    {
+        SceneManager.LoadScene(0);
+    }
+
+    private void LoadNextLevel()
+    {
+        SceneManager.LoadScene(1); // todo allow for more than two levels
     }
 
     private void Thrust()
