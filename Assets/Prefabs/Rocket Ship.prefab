@@ -193,7 +193,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1460362564522374}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -19.4, y: 0, z: -6.1}
+  m_LocalPosition: {x: -29.8, y: 0, z: -6.1}
   m_LocalScale: {x: 0.8, y: 0.8, z: 0.8}
   m_Children:
   - {fileID: 4191358127953188}
@@ -647,7 +647,7 @@ Rigidbody:
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 56
+  m_Constraints: 8
   m_CollisionDetection: 0
 --- !u!65 &65228030064192368
 BoxCollider:
@@ -706,7 +706,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: 8cc08e3d207243c4ba2825c7295b0a1f, type: 3}
+  m_audioClip: {fileID: 0}
   m_PlayOnAwake: 0
   m_Volume: 0.7
   m_Pitch: 0.7
@@ -805,6 +805,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rcsThrust: 250
   mainThrust: 10
+  mainEngine: {fileID: 8300000, guid: 8cc08e3d207243c4ba2825c7295b0a1f, type: 3}
+  death: {fileID: 8300000, guid: 41b7c99f75bccc0428666a26a9d3800a, type: 3}
+  success: {fileID: 8300000, guid: 8f13adb0d3512d545932602fa2b8666d, type: 3}
 --- !u!136 &136386001344863920
 CapsuleCollider:
   m_ObjectHideFlags: 1
