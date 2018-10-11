@@ -1,10 +1,9 @@
-﻿using System;
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Rocket : MonoBehaviour {
 
+    // todo test & fix lighting bug?
     [SerializeField] float rcsThrust = 100f;
     [SerializeField] float mainThrust = 100f;
 
@@ -31,14 +30,15 @@ public class Rocket : MonoBehaviour {
         {
             case "Friendly":
                 // do nothing
-                print("OK"); // TODO remove
                 break;
-            case "Fuel":
+            case "Finish":
                 // do nothing
-                print("Picked up fuel"); // TODO remove
+                print("Hit finish"); // TODO remove
+                SceneManager.LoadScene(1);
                 break;
             default:
                 print("Dead");
+                SceneManager.LoadScene(0);
                 break;
         }
     }
