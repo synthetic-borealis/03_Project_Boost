@@ -807,7 +807,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e4ac1fe847c08ea4090019a3c4f343e0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  movementVector: {x: -13.564711, y: 0, z: 0}
+  movementVector: {x: -33.8, y: 0, z: 2}
+  period: 3
   movementFactor: 0
 --- !u!1001 &1361832155
 Prefab:
@@ -1117,7 +1118,7 @@ Prefab:
     m_Modifications:
     - target: {fileID: 4224141130876762, guid: 03772060879d02a4c9d32f3bc47a49a9, type: 2}
       propertyPath: m_LocalPosition.x
-      value: 0.7352896
+      value: 19.5
       objectReference: {fileID: 0}
     - target: {fileID: 4224141130876762, guid: 03772060879d02a4c9d32f3bc47a49a9, type: 2}
       propertyPath: m_LocalPosition.y
