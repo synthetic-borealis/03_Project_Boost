@@ -809,7 +809,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   movementVector: {x: -33.8, y: 0, z: 2}
   period: 3
-  movementFactor: 0
 --- !u!1001 &1361832155
 Prefab:
   m_ObjectHideFlags: 0
