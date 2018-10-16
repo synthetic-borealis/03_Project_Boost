@@ -22,8 +22,10 @@ public class Rocket : MonoBehaviour
     enum State { Alive, Dying, Transcending };
     State state = State.Alive;
 
-	// Use this for initialization
-	void Start ()
+    bool collisionsDisabled = false;
+
+    // Use this for initialization
+    void Start ()
     {
         rigidBody = GetComponent<Rigidbody>();
         audioSource = GetComponent<AudioSource>();
@@ -37,11 +39,29 @@ public class Rocket : MonoBehaviour
             RespondToThrustInput();
             RespondToRotateInput();
         }
-	}
+
+        if (Debug.isDebugBuild)
+        {
+            RespondToDebugKeys();
+        }
+    }
+
+    private void RespondToDebugKeys()
+    {
+        if (Input.GetKeyDown(KeyCode.L))
+        {
+            LoadNextLevel();
+        }
+
+        if (Input.GetKeyDown(KeyCode.C))
+        {
+            collisionsDisabled = !collisionsDisabled; // toggle collision detection
+        }
+    }
 
     void OnCollisionEnter(Collision collision)
     {
-        if (state != State.Alive) { return; } // ignore collisions when dead or transcending
+        if (state != State.Alive || collisionsDisabled) { return; } // ignore collisions when dead or transcending
 
         switch (collision.gameObject.tag)
         {
